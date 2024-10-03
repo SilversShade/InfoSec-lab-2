@@ -21,7 +21,7 @@ def insert_secret_message(txt_filename: str, docx_filename: str, pt_amplifier: f
     index = 0
     docx_content_lower = docx_content.lower()
     for letter in secret_message:
-        index = docx_content_lower.find(letter.lower(), index + 1)
+        index = docx_content_lower.find(letter.lower(), index if index == 0 else index + 1)
 
         if index == -1:
             sys.exit("Could not find an appropriate letter in the initial docx file")
